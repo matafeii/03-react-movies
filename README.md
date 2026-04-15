@@ -2,6 +2,8 @@
 
 Застосунок для пошуку фільмів за допомогою TMDB API з сучасним інтерфейсом на React та TypeScript.
 
+🌐 **[Live Demo на Vercel](https://03-react-movies-teal-seven.vercel.app/)**
+
 ## 📋 Описання
 
 **React Movies** - це повнофункціональна веб-програма для пошуку фільмів. Користувачі можуть:
@@ -84,6 +86,15 @@ VITE_TMDB_TOKEN=вашТокенВідTMDB
 - Зареєструйтеся або увійдіть до облікового запису
 - Перейдіть до Settings → API
 - Скопіюйте ваш API Token (Bearer Token)
+
+**Важливо для Vercel:** 
+Якщо ви розгортаєте на Vercel, слід також встановити змінну оточення через дашборд Vercel:
+1. Перейдіть до проєкту на [vercel.com](https://vercel.com)
+2. Settings → Environment Variables
+3. Додайте нову змінну:
+   - Name: `VITE_TMDB_TOKEN`
+   - Value: `вашТокен`
+4. Перерозгорніть проєкт після додавання змінної
 
 4. **Запуск dev-сервера**
 ```bash
