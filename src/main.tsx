@@ -1,5 +1,6 @@
 import 'modern-normalize';
 import './style.css';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './components/App/App';
 
@@ -9,7 +10,8 @@ if (!root) {
   throw new Error('Root element not found');
 }
 
-const app = document.createElement('div');
-root.appendChild(app);
-
-createRoot(app).render(App({}));
+createRoot(root).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
