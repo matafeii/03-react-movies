@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
 import { Movie } from '../../types/movie';
 import { fetchMovies } from '../../services/movieService';
@@ -46,18 +47,21 @@ export default function App() {
   };
 
   return (
-    <div className={styles.container}>
-      <SearchBar onSubmit={handleSearch} />
+    <>
+      <div className={styles.container}>
+        <SearchBar onSubmit={handleSearch} />
 
-      {isLoading && <Loader />}
-      {isError && <ErrorMessage />}
-      {!isLoading && !isError && (
-        <MovieGrid movies={movies} onSelect={handleSelectMovie} />
-      )}
+        {isLoading && <Loader />}
+        {isError && <ErrorMessage />}
+        {!isLoading && !isError && (
+          <MovieGrid movies={movies} onSelect={handleSelectMovie} />
+        )}
 
-      {selectedMovie && (
-        <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
-      )}
-    </div>
+        {selectedMovie && (
+          <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
+        )}
+      </div>
+      <Toaster position="top-right" />
+    </>
   );
 }
