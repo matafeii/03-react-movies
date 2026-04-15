@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { Movie } from '../../types/movie';
-import styles from './MovieModal.module.css';
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import { Movie } from "../../types/movie";
+import styles from "./MovieModal.module.css";
 
 interface MovieModalProps {
   movie: Movie;
@@ -11,17 +11,17 @@ interface MovieModalProps {
 export default function MovieModal({ movie, onClose }: MovieModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         onClose();
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
     };
   }, [onClose]);
 

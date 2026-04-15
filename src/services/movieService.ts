@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
-import { Movie } from '../types/movie';
+import axios, { AxiosResponse } from "axios";
+import { Movie } from "../types/movie";
 
 interface FetchMoviesResponse {
   results: Movie[];
@@ -12,7 +12,7 @@ export const fetchMovies = async (query: string): Promise<Movie[]> => {
     params: {
       query,
       include_adult: false,
-      language: 'en-US',
+      language: "en-US",
       page: 1,
     },
     headers: {
@@ -21,8 +21,8 @@ export const fetchMovies = async (query: string): Promise<Movie[]> => {
   };
 
   const response: AxiosResponse<FetchMoviesResponse> = await axios.get(
-    'https://api.themoviedb.org/3/search/movie',
-    config
+    "https://api.themoviedb.org/3/search/movie",
+    config,
   );
 
   return response.data.results;
